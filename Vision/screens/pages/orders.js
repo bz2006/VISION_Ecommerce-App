@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet, FlatList ,Dimensions} from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet, FlatList, Dimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import axios from 'axios';
 import { useAuth } from '../../context/context/auth';
@@ -28,7 +28,7 @@ const Orders = () => {
         <TouchableOpacity
             key={item.orderid}
             activeOpacity={1}
-            onPress={() => { navigation.navigate("OrderDetails",{Orderid:item.orderid}) }}
+            onPress={() => { navigation.navigate("OrderDetails", { Orderid: item.orderid }) }}
             style={styles.orderContainer}
         >
             {item.products.map(product => (
@@ -45,12 +45,22 @@ const Orders = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-             <FlatList
-                data={allOrders}
-                renderItem={renderOrderItem}
-                keyExtractor={(item) => item.orderid.toString()}
-            />
-          <View style={{ marginBottom: 60 }}></View>
+            {allOrders.length === 0 ? (
+                <View style={styles.noOrdersContainer}>
+                    <Image source={require('../../assets/no-result-data-document-file-260nw-2318617293.png')} style={styles.noOrdersImage} />
+                    <Text style={styles.noOrdersText}>No orders found</Text>
+                    <TouchableOpacity style={styles.btn} activeOpacity={1} onPress={()=>{navigation.navigate("HomePage")}}>
+                        <Text style={styles.btnText}>Start Shopping</Text>
+                    </TouchableOpacity>
+                </View>
+            ) : (
+                <FlatList
+                    data={allOrders}
+                    renderItem={renderOrderItem}
+                    keyExtractor={(item) => item.orderid.toString()}
+                />
+            )}
+            <View style={{ marginBottom: 60 }}></View>
             <BottomNav />
         </SafeAreaView>
     );
@@ -63,12 +73,39 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "white",
         padding: 10,
-        paddingTop:90
+        paddingTop: 90
     },
     tx: {
         fontSize: 50,
-        color:"rgb(0,0,0)"
+        color: "rgb(0,0,0)"
     },
+    noOrdersContainer:{
+        flex:1,
+        alignItems:"center",
+        justifyContent:"center"
+    },
+    noOrdersImage: {
+        width: screenWidth * 0.7,
+        height: screenHeight * 0.3,
+    },
+    noOrdersText: {
+color:"rgb(0,0,0)",
+fontSize:25
+    },
+    btn:{
+        backgroundColor: 'rgb(0, 80, 87)',
+        padding: 10,
+        borderRadius: 10,
+        height: 55,
+        width: screenWidth * 0.7,
+        marginTop:30,
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    btnText: {
+        color: "white",
+        fontSize: 20
+      },
     orderContainer: {
         borderWidth: 1,
         margin: 10,
@@ -79,22 +116,22 @@ const styles = StyleSheet.create({
         padding: 20,
     },
     image: {
-        width: screenWidth*0.35,
-        height: screenWidth*0.35,
+        width: screenWidth * 0.35,
+        height: screenWidth * 0.35,
         marginRight: 15,
     },
     detailsContainer: {
         flex: 1,
-        alignItems:"center",
-        
+        alignItems: "center",
+
     },
     productName: {
-        fontSize: screenWidth*0.05,
+        fontSize: screenWidth * 0.05,
         marginTop: 45,
-        color:"rgb(0,0,0)"
+        color: "rgb(0,0,0)"
     },
     status: {
-        fontSize: screenWidth*0.05,
+        fontSize: screenWidth * 0.05,
         color: 'green',
     },
 });

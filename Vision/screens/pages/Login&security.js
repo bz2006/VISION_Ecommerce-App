@@ -57,7 +57,7 @@ const YourProfile = () => {
         try {
             await axios.post(`/api/v1/users/update-pass/${auth.user._id}`, { pass });
             GetUser()
-            alert("Password Updated")
+            alert("Password Changed")
             setModalVisible(false)
             setVerificationStatus(false)
 
@@ -197,7 +197,12 @@ const YourProfile = () => {
 
                     <ScrollView style={styles.modalView}>
                         <View style={{ flexDirection: "row", justifyContent: "flex-end" }}>
-                            <Ionicons name="close" size={70} color="rgb(0,0,0)" onPress={() => setModalVisible(false)} />
+                            <Ionicons name="close" size={70} color="rgb(0,0,0)" onPress={() => {
+                             
+                                setOtp("");
+                                Code = 0;
+                                setModalVisible(false);
+                            }} />
                         </View>
                         <View style={{ justifyContent: "center", flex: 1 }}>
                             {VerificationStatus === false ? (
@@ -219,10 +224,10 @@ const YourProfile = () => {
                                 </View>
                             ) : (
                                 <>
-                                    <Text style={{ fontWeight: 400 }}>New Password</Text>
-                                    <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
-                                        <TextInput type='password' onChangeText={(text) => setpass(text)} value={pass} placeholder='Password' style={{ width: "50%" }} />
-                                        <TouchableOpacity style={styles.adrs} onPress={UpdatePass}><Text>Change Password</Text></TouchableOpacity>
+                                    <Text style={{ fontSize: 18, color: "rgb(0,0,0)",marginBottom:10 }}>New Password</Text>
+                                    <View style={{ flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                                        <TextInput type='password' secureTextEntry={true} onChangeText={(text) => setpass(text)} value={pass} placeholder='Password' style={{ width: "95%",borderWidth:0.5,borderRadius:3 }} />
+                                        <TouchableOpacity style={styles.chpass} onPress={UpdatePass}><Text style={{ fontSize: 18, color: "white" }}>Change Password</Text></TouchableOpacity>
 
                                     </View>
                                 </>
@@ -301,6 +306,16 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         height: 55,
         width: screenWidth * 0.45,
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    chpass: {
+        backgroundColor: 'rgb(0, 80, 87)',
+        padding: 10,
+        borderRadius: 10,
+        height: 55,
+        marginTop:30,
+        width: screenWidth * 0.6,
         alignItems: "center",
         justifyContent: "center"
     },

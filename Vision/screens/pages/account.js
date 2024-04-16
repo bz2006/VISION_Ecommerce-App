@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAuth } from '../../context/context/auth'
+import axios from 'axios';
 import { useNavigation } from "@react-navigation/native";
 import Gif from 'react-native-gif';
 import BottomNav from '../../stickynav';
@@ -42,7 +43,7 @@ const Account = () => {
         <View >
           <View style={styles.top}>
             <View style={styles.topcontainer}>
-              <Gif style={styles.img} source={require("../../assets/appacc.gif")} />
+              <Image style={styles.img} source={require("../../assets/appacc.gif")} />
               <Text style={styles.topacctx}>Hi, {name}</Text>
             </View>
           </View>

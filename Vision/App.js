@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { AuthProvider, useAuth } from './context/context/auth';
@@ -7,6 +7,7 @@ import Login from './screens/auth/login';
 import Signup from './screens/auth/signup';
 import axios from "axios";
 import HomePage from './screens/pages/home';
+import BootSplash from "react-native-bootsplash";
 import ShopPage from './screens/pages/shop';
 import ProductPage from './screens/pages/productpage';
 import CartPage from './screens/pages/cart';
@@ -23,11 +24,20 @@ axios.defaults.baseURL = "http://192.168.1.39:3002"
 
 export default function App() {
 
+  useEffect(() => {
+    const init = async () => {
+    };
+
+    init().finally(async () => {
+      await BootSplash.hide({ fade: true });
+    });
+  }, []);
+
   return (
     <NavigationContainer>
       <AuthProvider>
         <CartProvider>
-        <AppNavigator />
+          <AppNavigator />
         </CartProvider>
       </AuthProvider>
     </NavigationContainer>

@@ -157,11 +157,11 @@ const Login = () => {
 
                             {VerificationInit === false ? (
                                 <>
-                                    <Text style={{ fontWeight: 400 }}>New Password</Text>
-                                    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-                                        <TextInput keyboardType="email-address" onChangeText={(text) => setEmail(text)} value={email} placeholder='Email' style={{ width: "50%" }} name='pass' />
-                                        <TouchableOpacity style={styles.btn} onPress={HandleVerificationInit}>
-                                            <Text style={styles.forgotp} >Send OTP</Text>
+                                    <Text style={{ fontSize: 18, color: "rgb(0,0,0)",marginBottom:10 }}>New Password</Text>
+                                    <View style={{ flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                                        <TextInput keyboardType="email-address" onChangeText={(text) => setEmail(text)} value={email} placeholder='Email' style={{ width: "95%",borderWidth:0.5,borderRadius:3 }} />
+                                        <TouchableOpacity style={styles.chpass} onPress={HandleVerificationInit}>
+                                            <Text style={{ fontSize: 18, color: "white" }} >Send OTP</Text>
 
                                         </TouchableOpacity>
                                     </View>
@@ -187,10 +187,10 @@ const Login = () => {
                                         </View>
                                     ) : (
                                         <>
-                                            <Text style={{ fontWeight: 400 }} >New Password</Text>
-                                            <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
-                                                <TextInput type='password' onChangeText={(text) => setpass(text)} value={pass} placeholder='Password' style={{ width: "50%" }} />
-                                                <TouchableOpacity style={styles.adrs} onPress={UpdatePass}><Text>Change Password</Text></TouchableOpacity>
+                                            <Text style={{ fontSize: 18, color: "rgb(0,0,0)",marginBottom:10 }}>New Password</Text>
+                                            <View style={{ flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                                                <TextInput type='password' secureTextEntry={true} onChangeText={(text) => setpass(text)} value={pass} placeholder='Password' style={{ width: "95%",borderWidth:0.5,borderRadius:3 }}/>
+                                                <TouchableOpacity style={styles.chpass} onPress={UpdatePass}><Text style={{ fontSize: 18, color: "white" }}>Change Password</Text></TouchableOpacity>
 
                                             </View>
                                         </>
@@ -228,6 +228,16 @@ const styles = StyleSheet.create({
         alignItems: "center",
         flexDirection: "row",
         backgroundColor: "Red"
+    },
+    chpass: {
+        backgroundColor: 'rgb(0, 80, 87)',
+        padding: 10,
+        borderRadius: 10,
+        height: 55,
+        marginTop:30,
+        width: screenWidth * 0.6,
+        alignItems: "center",
+        justifyContent: "center"
     },
     otpinput: {
         marginRight: 10,
