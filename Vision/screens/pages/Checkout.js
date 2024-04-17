@@ -187,7 +187,7 @@ const CheckoutPage = () => {
     const handlePayment = async () => {
         var options = {
             description: 'Credits towards consultation',
-            image: 'https://i.imgur.com/3g7nmJC.jpg',
+            image: 'http://52.66.213.190/uploads/favicon.png',
             currency: 'INR',
             key: key_id,
             amount: amount * 100,
@@ -205,7 +205,7 @@ const CheckoutPage = () => {
             alert(`Success: ${data.razorpay_payment_id}`);
         }).catch((error) => {
             // handle failure
-            alert(`Error: ${error.code} | ${error.description}`);
+            alert(`Error: ${error.code} Please try again`);
         });
     };
 
