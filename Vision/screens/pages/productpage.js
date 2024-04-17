@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView,Dimensions}
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Picker } from '@react-native-picker/picker';
+import { useNavigation } from "@react-navigation/native";
 import { useCart } from '../../context/context/cart';
 import BottomNav from '../../stickynav'
 import Headernav from '../../header';
@@ -11,6 +12,7 @@ const ProductPage = ({ route }) => {
   const { Productid } = route.params;
   const [cart, setCart] = useCart()
   const [product, setProducts] = useState([]);
+  const navigation = useNavigation();
   const [pid, setId] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -42,23 +44,25 @@ const ProductPage = ({ route }) => {
 
   const handleAddToCart = () => {
     const finalqty = [pid, name, images, mrp, Quantity, 0];
-    console.log(finalqty);
-    console.log(cart);
-    // Ensure cart is initialized as an array
     const updatedCart = Array.isArray(cart) ? [...cart, finalqty] : [finalqty];
     setCart(updatedCart);
   };
-  console.log(cart);
+  const handleBuyNow = () => {
+    const finalqty = [pid, name, images, mrp, Quantity, 0];
+    const updatedCart = Array.isArray(cart) ? [...cart, finalqty] : [finalqty];
+    setCart(updatedCart);
+    navigation.navigate("CartPage")
+  };
   return (
     <><Headernav />
       <View style={styles.container}>
         <ScrollView>
           <View style={styles.imageContainer}>
-            <Image source={{ uri: `http://43.205.242.76/uploads/${selectedImage}` }} style={styles.mainImage} />
+            <Image source={{ uri: `http://52.66.213.190/uploads/${selectedImage}` }} style={styles.mainImage} />
             <ScrollView horizontal>
               {images.map((image, index) => (
                 <TouchableOpacity key={index} onPress={() => setSelectedImage(image)} style={styles.thumbnailContainer}>
-                  <Image source={{ uri: `http://43.205.242.76/uploads/${image}` }} style={styles.thumbnailImage} />
+                  <Image source={{ uri: `http://52.66.213.190/uploads/${image}` }} style={styles.thumbnailImage} />
                 </TouchableOpacity>
               ))}
             </ScrollView>
@@ -85,7 +89,7 @@ const ProductPage = ({ route }) => {
             <TouchableOpacity style={styles.addToCartButton} onPress={handleAddToCart}>
               <Text style={styles.addbuttonText}>Add to Cart</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.buyNowButton}>
+            <TouchableOpacity style={styles.buyNowButton} onPress={handleBuyNow}>
               <Text style={styles.buybuttonText}>Buy Now</Text>
             </TouchableOpacity>
             </View>

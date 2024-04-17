@@ -24,7 +24,7 @@ const HomePage = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView >
         <View style={{ alignItems: "center" }}>
-          <Image style={styles.mimg} source={{ uri: "http://43.205.242.76/uploads/home_logo_2p.png" }} />
+          <Image style={styles.mimg} source={{ uri: "http://52.66.213.190/uploads/home_logo_2p.png" }} />
           <Text style={styles.fptx}>Featured Products</Text>
       
           <FeaturedProducts />

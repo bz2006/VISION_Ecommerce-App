@@ -94,7 +94,8 @@ const styles = StyleSheet.create({
   },
   topacctx: {
     color: "white",
-    fontSize: screenWidth * 0.10
+    fontSize: screenWidth * 0.10,
+    textAlign:"center"
   },
   bottemcontainer: {
     backgroundColor: "white",
@@ -109,7 +110,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   accbtns: {
-    borderWidth: 1,
+    borderWidth:1,
     borderColor: "	rgb(200,200,200)",
     alignItems: "center",
     justifyContent: "center",
@@ -117,7 +118,6 @@ const styles = StyleSheet.create({
     width: screenWidth * 0.85,
     height: screenWidth * 0.20,
     borderRadius: 10,
-    elevation: 1
   },
   acctx: {
     color: "rgb(0,0,0)",

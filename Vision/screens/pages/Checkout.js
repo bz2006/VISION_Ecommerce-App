@@ -300,7 +300,7 @@ const CheckoutPage = () => {
                         {cart.length > 0 && cart.map(cartItem => (
                             <View style={styles.cartcrd} key={cartItem[0]}>
                                 <View style={styles.card} >
-                                    <Image source={{ uri: `http://43.205.242.76/uploads/${cartItem[2][0]}` }} style={styles.Img} />
+                                    <Image source={{ uri: `http://52.66.213.190/uploads/${cartItem[2][0]}` }} style={styles.Img} />
                                     <View >
                                         <Text style={styles.cardTitle}>{cartItem[1]}</Text>
                                         <Text style={styles.cardText}>₹{cartItem[3]}</Text>

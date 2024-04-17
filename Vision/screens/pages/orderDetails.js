@@ -44,7 +44,7 @@ const OrderDetails = ({ route }) => {
                             <View style={styles.ordDiv} >
                                 {ord.products.map((product, index) => (
                                     <View key={product[0]} style={styles.ordiv}>
-                                        <Image source={{ uri: `http://43.205.242.76/uploads/${product[2]}` }} style={styles.image} />
+                                        <Image source={{ uri: `http://52.66.213.190/uploads/${product[2]}` }} style={styles.image} />
                                         <View style={{ flexDirection: "column", marginLeft: 30 }}>
                                             <Text style={styles.text}>{product[1]}</Text>
                                             <Text style={styles.text}>{product[3]}   x{product[4]}</Text>

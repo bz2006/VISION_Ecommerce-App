@@ -200,7 +200,7 @@ console.log("dataaaa",cartData)
               {cart.map(cartItem => (
                 <View style={styles.cartcrd} key={cartItem[0]}>
                   <View style={styles.card}>
-                    <Image source={{ uri: `http://43.205.242.76/uploads/${cartItem[2][0]}` }} style={styles.cardImg} />
+                    <Image source={{ uri: `http://52.66.213.190/uploads/${cartItem[2][0]}` }} style={styles.cardImg} />
                     <View style={styles.cardBody}>
                       <Text style={styles.cardTitle}>{cartItem[1]}</Text>
                       <Text style={styles.cardText}>₹{cartItem[3]}</Text>
@@ -220,7 +220,7 @@ console.log("dataaaa",cartData)
                         });
                         setCart(updatedCart);
                       }}>
-                      {[...Array(10)].map((_, index) => (
+                      {[...Array(9)].map((_, index) => (
                         <Picker.Item key={index + 1} label={(index + 1).toString()} value={index + 1} />
                       ))}
                     </Picker>
@@ -232,7 +232,7 @@ console.log("dataaaa",cartData)
               ))}
             </View>
           ) : (
-            <Image source={{ uri: 'http://43.205.242.76/uploads/6024626.png' }} style={styles.cremty} />
+            <Image source={require('../../assets/6024626.png')} style={styles.cremty} />
           )}
         </>
 

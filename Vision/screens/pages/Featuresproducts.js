@@ -29,7 +29,7 @@ const FeaturedProducts = () => {
       
       <View style={styles.productItem}>
         <View style={{alignItems:"center"}}> 
-        <Image source={{ uri: `http://43.205.242.76/uploads/${item.images[0]}` }} style={styles.productImage} />
+        <Image source={{ uri: `http://52.66.213.190/uploads/${item.images[0]}` }} style={styles.productImage} />
         </View>
         <View style={styles.productText}>
           <View>
