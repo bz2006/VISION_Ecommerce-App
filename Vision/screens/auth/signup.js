@@ -44,7 +44,7 @@ const Signup = () => {
 
     const welcomeMail = async () => {
         try {
-            const response = await fetch('http://192.168.1.39:3002/send-welcome-mail', {
+            const response = await fetch('https://app-api.visionwoodenclocks.com/send-welcome-mail', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

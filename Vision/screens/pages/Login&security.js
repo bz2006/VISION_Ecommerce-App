@@ -75,7 +75,7 @@ const YourProfile = () => {
     const Verification = async () => {
         try {
             Code = Math.floor(Math.random() * 9000) + 1000;
-            const response = await fetch('http://192.168.1.39:3002/send-verification', {
+            const response = await fetch('https://app-api.visionwoodenclocks.com/send-verification', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
