@@ -38,7 +38,6 @@ const CartPage = () => {
   const handleDelete = async (productId) => {
       updatedCart = cart.filter(item => item[0] !== productId);
       setCart(updatedCart);
-      console.log("updatcrta",updatedCart)
 
       if (auth.user) {
 
@@ -87,7 +86,7 @@ const CartPage = () => {
               let updatedCart = [cartServer, cart];
               const mergedCart = [updatedCart[0].concat(updatedCart[1])]
               const combinedCart = servercombineCartItems(mergedCart);
-              console.log("combi",combinedCart)
+
               for (let arr of combinedCart) {
                   cartData.items.push({
                       product: arr[0],
@@ -101,7 +100,7 @@ const CartPage = () => {
               }
               await axios.put(`/api/v1/cart/create-up-cart/${auth.user._id}`, cartData);
               localStorage.setItem("cart", JSON.stringify(combinedCart));
-              console.log("synced with server cart sevrver")
+
           } else {
               for (let arr of updatedCart) {
                   cartData.items.push({
@@ -114,9 +113,9 @@ const CartPage = () => {
 
                   });
               }
-console.log("dataaaa",cartData)
+
               await axios.put(`/api/v1/cart/create-up-cart/${auth.user._id}`, cartData);
-              console.log("synced with cart ")
+   
           }
 
       } catch (error) {
@@ -137,7 +136,7 @@ console.log("dataaaa",cartData)
               });
           }
           await axios.put(`/api/v1/cart/create-up-cart/${auth.user._id}`, cartData);
-          console.log("Cart synced with server successfully in cart page.");
+
       } catch (error) {
           console.error("Error syncing cart with server:", error);
       }
@@ -159,7 +158,7 @@ console.log("dataaaa",cartData)
 
               }
           }
-          console.log("getttt")
+
           if (perm === 0) { setCart(newdata); perm=1; }
           return newdata
 
@@ -200,7 +199,7 @@ console.log("dataaaa",cartData)
               {cart.map(cartItem => (
                 <View style={styles.cartcrd} key={cartItem[0]}>
                   <View style={styles.card}>
-                    <Image source={{ uri: `http://52.66.213.190/uploads/${cartItem[2][0]}` }} style={styles.cardImg} />
+                    <Image source={{ uri: `https://bz-vision-web.visionwoodenclocks.com/uploads/${cartItem[2][0]}` }} style={styles.cardImg} />
                     <View style={styles.cardBody}>
                       <Text style={styles.cardTitle}>{cartItem[1]}</Text>
                       <Text style={styles.cardText}>₹{cartItem[3]}</Text>

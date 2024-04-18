@@ -26,7 +26,7 @@ const OrderDetails = ({ route }) => {
             const singleOrderResponse = await axios.get(`/api/v1/orders/user-order/${id}`);
             setOrder(singleOrderResponse.data);
         } catch (error) {
-            console.log(error)
+   
         }
     };
 
@@ -44,7 +44,7 @@ const OrderDetails = ({ route }) => {
                             <View style={styles.ordDiv} >
                                 {ord.products.map((product, index) => (
                                     <View key={product[0]} style={styles.ordiv}>
-                                        <Image source={{ uri: `http://52.66.213.190/uploads/${product[2]}` }} style={styles.image} />
+                                        <Image source={{ uri: `https://bz-vision-web.visionwoodenclocks.com/uploads/${product[2]}` }} style={styles.image} />
                                         <View style={{ flexDirection: "column", marginLeft: 30 }}>
                                             <Text style={styles.text}>{product[1]}</Text>
                                             <Text style={styles.text}>{product[3]}   x{product[4]}</Text>

@@ -12,7 +12,7 @@ export const getUserById = async (req, res) => {
 
     return res.json({user});
   } catch (error) {
-    console.log(error)
+
     return res.status(500).json({ success: false, message: error.message });
   }
 };
@@ -21,8 +21,7 @@ export const updateUsername = async (req, res) => {
   try {
       const userId = req.params.id;
       const name = req.body["name"];
-      console.log(name)
-      console.log(req.body)
+
 
       const user = await User.findById(userId)
 
@@ -42,7 +41,7 @@ export const UpdatePass = async (req, res) => {
   try {
       const userId = req.params.id;
       const pass =req.body["pass"];
-      console.log(pass,userId)
+
       const hashedpass = await hashPassword(pass)
       const user = await User.findById(userId)
 
@@ -73,7 +72,7 @@ export const Forgotpass = async (req, res) => {
       await user.save();
       return res.status(200).json({ message: "Something went wrong" });
   } catch (error) {
-    console.log(error)
+
       return res.status(500).json({ success: false, message: error.message });
       
   }

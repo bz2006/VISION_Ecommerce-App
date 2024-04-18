@@ -23,10 +23,13 @@ const Login = () => {
 
     const Handlelogin = async () => {
         try {
+            console.log(email,password)
             const res = await axios.post("/api/v1/auth/login", { email, password });
+            console.log(email,res)
             if (res && res.data.success) {
                 alert("Login successful");
                 setEmail("")
+                
                 setPassword("")
                 setAuth(res.data)
                 await AsyncStorage.setItem('auth', JSON.stringify(res.data));
@@ -35,14 +38,12 @@ const Login = () => {
                 setEmail("")
                 setPassword("")
                 alert("User not found")
-                console.log("User Not Found")
 
             }
         } catch (error) {
-            setusername("")
             setEmail("")
             setPassword("")
-            alert("User not found")
+            alert("An error occured, please try again")
         }
 
     }
@@ -57,7 +58,6 @@ const Login = () => {
             setOtp("")
             Code = 0
         } catch (error) {
-            console.log(error)
         }
     }
 
@@ -81,13 +81,11 @@ const Login = () => {
                 body: JSON.stringify({ OTP: Code, Email: email })
             });
         } catch (error) {
-            console.log(error)
         }
     }
     const CheckVerification = async () => {
         try {
             if (otp == Code) {
-                console.log("Verified")
                 setVerificationStatus(true)
                 alert("Verified")
                 setOtp("")
@@ -99,7 +97,6 @@ const Login = () => {
                 Code = 0
             }
         } catch (error) {
-            console.log(error)
         }
     }
 

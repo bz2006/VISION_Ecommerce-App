@@ -39,8 +39,6 @@ const Signup = () => {
                 setPassword("")
             }
         } catch (error) {
-            console.log("Something went wrong")
-            console.log(error)
         }
     }
 
@@ -54,12 +52,9 @@ const Signup = () => {
                 body: JSON.stringify(formdata)
             });
             if (response.ok) {
-                console.log("sendd")
             } else {
-                console.log("not  sendd")
             }
         } catch (error) {
-            console.log(error)
         }
     };
 

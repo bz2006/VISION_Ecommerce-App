@@ -65,7 +65,6 @@ const CartProvider = ({ children }) => {
   const combineCartItems = (cartItems) => {
     const combiner = [];
     const ids = [];
-    console.log("cart", cart)
     for (let v of cartItems) {
       if (!ids.includes(v[0])) {
         ids.push(v[0]);
@@ -132,8 +131,6 @@ const CartProvider = ({ children }) => {
           });
         }
         await axios.put(`/api/v1/cart/create-up-cart/${auth.user._id}`, cartData);
-        //localStorage.setItem("cart", JSON.stringify(combinedCart));
-        console.log("synced with cart sevrver")
       } else {
         for (let arr of cart) {
           cartData.items.push({
@@ -148,7 +145,6 @@ const CartProvider = ({ children }) => {
         }
 
         await axios.put(`/api/v1/cart/create-up-cart/${auth.user._id}`, cartData);
-        console.log("synced with cart sevrver")
       }
 
     } catch (error) {

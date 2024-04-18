@@ -35,7 +35,7 @@ const ProductPage = ({ route }) => {
 
 
     } catch (error) {
-      console.log(error);
+
     }
   };
   useEffect(() => {
@@ -58,11 +58,11 @@ const ProductPage = ({ route }) => {
       <View style={styles.container}>
         <ScrollView>
           <View style={styles.imageContainer}>
-            <Image source={{ uri: `http://52.66.213.190/uploads/${selectedImage}` }} style={styles.mainImage} />
+            <Image source={{ uri: `https://bz-vision-web.visionwoodenclocks.com/uploads/${selectedImage}` }} style={styles.mainImage} />
             <ScrollView horizontal>
               {images.map((image, index) => (
                 <TouchableOpacity key={index} onPress={() => setSelectedImage(image)} style={styles.thumbnailContainer}>
-                  <Image source={{ uri: `http://52.66.213.190/uploads/${image}` }} style={styles.thumbnailImage} />
+                  <Image source={{ uri: `https://bz-vision-web.visionwoodenclocks.com/uploads/${image}` }} style={styles.thumbnailImage} />
                 </TouchableOpacity>
               ))}
             </ScrollView>

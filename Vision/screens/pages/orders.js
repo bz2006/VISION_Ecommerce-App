@@ -16,7 +16,7 @@ const Orders = () => {
             const response = await axios.get(`/api/v1/orders/get-orders/${auth.user._id}`);
             setAllOrders(response.data);
         } catch (error) {
-            console.log('Error fetching orders:', error);
+
         }
     };
 
@@ -33,7 +33,7 @@ const Orders = () => {
         >
             {item.products.map(product => (
                 <View key={product[0]} style={styles.productContainer}>
-                    <Image source={{ uri: `http://52.66.213.190/uploads/${product[2]}` }} style={styles.image} />
+                    <Image source={{ uri: `https://bz-vision-web.visionwoodenclocks.com/uploads/${product[2]}` }} style={styles.image} />
                     <View style={styles.detailsContainer}>
                         <Text style={styles.productName}>{product[1]}</Text>
                         <Text style={styles.status}>{item.status}</Text>

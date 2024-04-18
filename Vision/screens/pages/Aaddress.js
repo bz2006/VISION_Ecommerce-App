@@ -37,11 +37,9 @@ const Address = () => {
             const alladrs = await axios.get(`/api/v1/users/getall-address/${auth.user._id}`);
             setallAdrs(alladrs.data.Alladdres)
             setdefid(alladrs.data.defadrs)
-            console.log(alladrs.data.Alladdres)
 
 
         } catch (error) {
-            console.log("something went wrong adrs");
 
         }
     }
@@ -50,13 +48,10 @@ const Address = () => {
             const alladrs = await axios.get(`/api/v1/users/getall-address/${auth.user._id}`);
             const lastArray = alladrs.data.Alladdres[alladrs.data.Alladdres.length - 1];
             const la_id = lastArray._id
-            console.log(la_id)
             await axios.post(`/api/v1/users/user-def-adres/${auth.user._id}`, { la_id });
-            console.log("nod")
             Getallddress()
 
         } catch (error) {
-            console.log("something went nodddwrong");
 
         }
     }
@@ -83,7 +78,6 @@ const Address = () => {
                 phone: phone,
             })
             await axios.post(`/api/v1/users/update-user/${auth.user._id}`, Data);
-            console.log("New address added")
             await Getallddressnod()
 
             const redirectSrc = "CheckoutPage"
@@ -93,7 +87,6 @@ const Address = () => {
             }
 
         } catch (error) {
-            console.log(error);
 
         }
 
@@ -110,7 +103,7 @@ const Address = () => {
             const adrsid = selectedaddress._id
             const Data = selectedaddress;
             await axios.put(`/api/v1/users/update-user-adrs/${auth.user._id}`, { adrsid, selectedaddress });
-            console.log("Address updated")
+
             const redirectSrc = "CheckoutPage"
             if (redirectSrc === "CheckoutPage") {
                 await AsyncStorage.removeItem("redirectSrc");
@@ -120,7 +113,7 @@ const Address = () => {
 
 
         } catch (error) {
-            console.log("Something went wrong");
+
 
         }
     }
@@ -132,7 +125,7 @@ const Address = () => {
             Getallddress()
 
         } catch (error) {
-            console.log(error);
+
 
         }
     }

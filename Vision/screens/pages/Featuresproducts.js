@@ -16,7 +16,7 @@ const FeaturedProducts = () => {
       const featuredProducts = data.productList.filter(product => product.isFeatured);
       setProducts(featuredProducts);
     } catch (error) {
-      console.log(error);
+
     }
   };
 
@@ -29,7 +29,7 @@ const FeaturedProducts = () => {
       
       <View style={styles.productItem}>
         <View style={{alignItems:"center"}}> 
-        <Image source={{ uri: `http://52.66.213.190/uploads/${item.images[0]}` }} style={styles.productImage} />
+        <Image source={{ uri: `https://bz-vision-web.visionwoodenclocks.com/uploads/${item.images[0]}` }} style={styles.productImage} />
         </View>
         <View style={styles.productText}>
           <View>

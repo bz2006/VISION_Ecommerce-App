@@ -42,7 +42,7 @@ const CheckoutPage = () => {
             setallAdrs(alladrs.data.Alladdres)
             setdefid(alladrs.data.defadrs)
             setdefbillid(alladrs.data.defadrs)
-            console.log("keriget")
+
             if (alladrs.data.Alladdres.length === 0 || defid === "") {
                 setBillmodel(true)
                 setShipmodel(true)
@@ -50,7 +50,7 @@ const CheckoutPage = () => {
 
 
         } catch (error) {
-            console.log("something went wrong");
+
 
         }
     }
@@ -138,7 +138,7 @@ const CheckoutPage = () => {
                     });
                 }
                 await axios.put(`/api/v1/cart/create-up-cart/${auth.user._id}`, cartData);
-                console.log("synced with cart sevrver")
+
             } else {
                 for (let arr of cart) {
                     cartData.items.push({
@@ -153,7 +153,7 @@ const CheckoutPage = () => {
                 }
 
                 await axios.put(`/api/v1/cart/create-up-cart/${auth.user._id}`, cartData);
-                console.log("synced with cart sevrver")
+    
             }
 
         } catch (error) {
@@ -187,7 +187,7 @@ const CheckoutPage = () => {
     const handlePayment = async () => {
         var options = {
             description: 'Credits towards consultation',
-            image: 'http://52.66.213.190/uploads/favicon.png',
+            image: 'https://bz-vision-web.visionwoodenclocks.com/uploads/favicon.png',
             currency: 'INR',
             key: key_id,
             amount: amount * 100,
@@ -300,7 +300,7 @@ const CheckoutPage = () => {
                         {cart.length > 0 && cart.map(cartItem => (
                             <View style={styles.cartcrd} key={cartItem[0]}>
                                 <View style={styles.card} >
-                                    <Image source={{ uri: `http://52.66.213.190/uploads/${cartItem[2][0]}` }} style={styles.Img} />
+                                    <Image source={{ uri: `https://bz-vision-web.visionwoodenclocks.com/uploads/${cartItem[2][0]}` }} style={styles.Img} />
                                     <View >
                                         <Text style={styles.cardTitle}>{cartItem[1]}</Text>
                                         <Text style={styles.cardText}>₹{cartItem[3]}</Text>

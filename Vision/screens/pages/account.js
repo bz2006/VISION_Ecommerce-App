@@ -26,10 +26,10 @@ const Account = () => {
   const GetUser = async () => {
     try {
       const user = await axios.get(`/api/v1/users/get-user/${auth.user._id}`)
-      console.log("auth.user._id")
+
       setname(user.data.user.username)
     } catch (error) {
-      console.log(error)
+
     }
   }
   useEffect(() => {

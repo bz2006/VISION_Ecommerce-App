@@ -20,7 +20,7 @@ const BottomNav = ({ showHeader = true }) => {
 
       }
     } catch (error) {
-      console.log(error);
+
     }
   };
   useEffect(() => {

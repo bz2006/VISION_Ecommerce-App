@@ -23,16 +23,15 @@ const YourProfile = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const [email, setemail] = useState("");
 
-    console.log(otp)
 
     const GetUser = async () => {
         try {
             const user = await axios.get(`/api/v1/users/get-user/${auth.user._id}`)
-            console.log("auth.user._id")
+
             setname(user.data.user.username)
             setemail(user.data.user.email)
         } catch (error) {
-            console.log(error)
+
         }
     }
     useEffect(() => {
@@ -44,12 +43,12 @@ const YourProfile = () => {
 
     const updtaename = async () => {
         try {
-            console.log(name)
+ 
             await axios.post(`/api/v1/users/update-username/${auth.user._id}`, { name });
             alert("Username Updated")
             GetUser()
         } catch (error) {
-            console.log(error)
+    
         }
     }
 
@@ -62,7 +61,7 @@ const YourProfile = () => {
             setVerificationStatus(false)
 
         } catch (error) {
-            console.log(error)
+   
         }
     }
 
@@ -84,13 +83,13 @@ const YourProfile = () => {
                 body: JSON.stringify({ OTP: Code, Email: email })
             });
         } catch (error) {
-            console.log(error)
+    
         }
     }
     const CheckVerification = async () => {
         try {
             if (otp == Code) {
-                console.log("Verified")
+       
                 setVerificationStatus(true)
                 alert("Verified")
                 setOtp("")
@@ -102,7 +101,7 @@ const YourProfile = () => {
                 Code = 0
             }
         } catch (error) {
-            console.log(error)
+
         }
     }
 

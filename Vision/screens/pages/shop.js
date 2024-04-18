@@ -16,7 +16,7 @@ const ShopPage = ({ route }) => {
       const { data } = await axios.get(`/api/v1/product/cat-products/${categoryId}`);
       setProducts(data.productList);
     } catch (error) {
-      console.log(error);
+
     }
   };
 
@@ -28,7 +28,7 @@ const ShopPage = ({ route }) => {
     <TouchableWithoutFeedback onPress={() => { navigation.navigate("ProductPage",{Productid:item._id}) }}>
       
       <View style={styles.productItem}>
-        <Image source={{ uri: `http://52.66.213.190/uploads/${item.images[0]}` }} style={styles.productImage} />
+        <Image source={{ uri: `https://bz-vision-web.visionwoodenclocks.com/uploads/${item.images[0]}` }} style={styles.productImage} />
         <View style={styles.productText}>
           <Text style={styles.productName}>{item.name}</Text>
           <Text style={styles.productPrice}>₹{item.mrp}.00</Text>

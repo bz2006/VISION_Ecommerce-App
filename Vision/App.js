@@ -19,7 +19,7 @@ import CheckoutPage from './screens/pages/Checkout';
 import YourProfile from './screens/pages/Login&security';
 
 const Stack = createNativeStackNavigator();
-axios.defaults.baseURL = "http://192.168.1.39:3002"
+axios.defaults.baseURL = "https://app-api.visionwoodenclocks.com"
 
 
 export default function App() {
